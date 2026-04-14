@@ -31,4 +31,11 @@ class ObsidianClipperTest < Minitest::Test
     assert_match /^obsidian:\/\/new\?vault=my-notes/, uri
     assert_includes uri, "name=later%2FRuby%E3%81%AE%E8%A8%98%E4%BA%8B"
   end
+
+  def test_fetch_title
+    url = "https://qiita.com/about"
+    title = @clipper.fetch_title(url)
+
+    assert_includes title, "Qiita"
+  end
 end

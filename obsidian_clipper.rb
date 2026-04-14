@@ -1,4 +1,6 @@
 require 'cgi'
+require 'open-uri'
+require 'nokogiri'
 
 class ObsidianClipper
   def initialize(vault:)
@@ -21,5 +23,11 @@ class ObsidianClipper
     encoded_content = CGI.escape(content)
 
     "obsidian://new?vault=#{@vault}&name=#{encoded_name}&content=#{encoded_content}"
+  end
+
+  def fetch_title(url)
+    html = URI.open(url).read
+    doc = Nokogiri::HTML.parse(html)
+    doc.title
   end
 end
