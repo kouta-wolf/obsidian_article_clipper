@@ -22,7 +22,7 @@ class ObsidianClipper
     encoded_name = CGI.escape(name)
     encoded_content = CGI.escape(content)
 
-    "obsidian://new?vault=#{@vault}&name=#{encoded_name}&content=#{encoded_content}"
+    "obsidian://new?vault=#{@vault}&file=06_clippings%2F#{encoded_name}&content=#{encoded_content}"
   end
 
   def fetch_title(url)
