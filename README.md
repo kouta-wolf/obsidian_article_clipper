@@ -8,15 +8,19 @@
 - obsidian (win環境のみ確認)
 
 ## Use
-- main.rbのコメントを参照してobsidianのvault名とpathを変更してください
-- main.rbを起動し、画面に従いURLを入力することでプロパティ値が入ったobsidianの新規noteが作られる
-- ブックマークレットを使用する場合はapp.rbをsinatraサーバーで起動して`javascript:location.href='http://localhost:4567/clip?url=%27+encodeURIComponent(location.href);`をブックマークに入れてください
+- main.rbのコメントを参照して自分のobsidianのvault名とpathにしてください
+- main.rbを起動し、画面に従いURLを入力することでプロパティ値が入ったobsidianの新規noteが作られます
+- ブックマークレットを使用する場合はapp.rbをsinatraサーバーで起動して下記のブックマークレットを作成してください
+```
+javascript:location.href='http://localhost:4567/clip?url=%27+encodeURIComponent(location.href);
+```
 
 ## おすすめの使い方
 - obsidianのベースかDataviewで一覧で見られるようにすると良いかもしれません
 
 ## 非対応
 - mac、linuxの環境は検証していません。一応対応させるためAIに記載してもらっていますが動作確認はできていません。
-- choroniumエンジン以外のブラウザは検証していません
+- chromiumエンジン以外のブラウザは検証していません
 
-
+## LICENCE
+- This project is licensed under the MIT License, see the LICENSE.txt file for details
