@@ -16,7 +16,8 @@ class ObsidianClipper
     ---
     title: "#{safe_title}"
     source: "#{url}"
-    author: "#{author}"
+    author: 
+    - #{author}
     created: #{today}
     tags:
       - webclip
@@ -34,7 +35,7 @@ class ObsidianClipper
     encoded_path = CGI.escape(file_path).gsub('+', '%20')
     encoded_content = CGI.escape(content).gsub('+', '%20')
 
-    "obsidian://new?vault=#{@vault}&file=#{encoded_path}&content=#{encoded_content}"
+    "obsidian://advanced-uri?vault=#{@vault}&filepath=#{encoded_path}&data=#{encoded_content}&mode=new&silent=true"
   end
 
   def fetch_title(url)

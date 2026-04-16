@@ -1,6 +1,6 @@
 require_relative 'obsidian_clipper'
 
-clipper = ObsidianClipper.new(vault: 'obsidian')
+clipper = ObsidianClipper.new(vault: 'obsidian') # 'obsidian'は任意のvault名'
 
 puts "クリップしたいURLを入力してね >> "
 url = gets.chomp
@@ -10,7 +10,7 @@ title = clipper.fetch_title(url)
 puts "Title: #{title}"
 
 safe_title = clipper.sanitize_filename(title)
-file_path = "06_clippings/#{safe_title}"
+file_path = "06_clippings/#{safe_title}" # file_pathはobsidianにnoteを保管するフォルダpath。最後に/#{safe_title}を記述
 
 content = clipper.format_content(title, url)
 uri = clipper.build_uri(file_path, content) 
