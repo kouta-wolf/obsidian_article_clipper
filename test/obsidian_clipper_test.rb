@@ -8,18 +8,21 @@ class ObsidianClipperTest < Minitest::Test
 
   def test_format_content
     url = "https://qiita.com/example"
-    title = "Qiitaの記事"
+    title = 'Qiitaの"すごい"記事'
     today = Date.today.strftime("%Y-%m-%d")
     
     expected = <<~TEXT.chomp
-      ---
-      author: "Qiita"
-      created: [[#{today}]]
-      tags:
-        - webclip
-        - unread
-      url: "https://qiita.com/example"
-      ---
+    ---
+    title: "Qiitaの\\"すごい\\"記事"
+    source: "https://qiita.com/example"
+    author: 
+    - Qiita
+    created: #{today}
+    tags:
+      - webclip
+      - unread
+    ---
+    # Qiitaの"すごい"記事
     TEXT
 
     assert_equal expected, @clipper.format_content(title, url)
@@ -27,7 +30,7 @@ class ObsidianClipperTest < Minitest::Test
 
   def test_build_uri
     title = "Rubyの記事"
-    content = "tags: #later"
+    content = "tags: #webclip #unread"
 
     uri = @clipper.build_uri("#{title}", content)
 
