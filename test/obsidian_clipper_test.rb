@@ -29,13 +29,17 @@ class ObsidianClipperTest < Minitest::Test
   end
 
   def test_build_uri
-    title = "Rubyの記事"
-    content = "tags: #webclip #unread"
+    sample_path = "dummy_folder/sample_note"
+    sample_content = "tags: #webclip #unread"
 
-    uri = @clipper.build_uri("#{title}", content)
+    uri = @clipper.build_uri(sample_path, sample_content)
 
     assert_match /^obsidian:\/\/new\?vault=my-notes/, uri
-    assert_includes uri, "name=later%2FRuby%E3%81%AE%E8%A8%98%E4%BA%8B"
+    assert_includes uri, "&file="
+    encoded_path = CGI.escape(sample_path).gsub('+', '%20')
+    assert_includes uri, "file=#{encoded_path}"
+    encoded_content = CGI.escape(sample_content).gsub('+', '%20')
+    assert_includes uri, "content=#{encoded_content}"
   end
 
   def test_fetch_title
