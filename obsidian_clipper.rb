@@ -35,7 +35,7 @@ class ObsidianClipper
     encoded_path = CGI.escape(file_path).gsub('+', '%20')
     encoded_content = CGI.escape(content).gsub('+', '%20')
 
-    "obsidian://advanced-uri?vault=#{@vault}&filepath=#{encoded_path}&data=#{encoded_content}&mode=new&silent=true"
+    "obsidian://new?vault=#{@vault}&file=#{encoded_path}&content=#{encoded_content}"
   end
 
   def fetch_title(url)
