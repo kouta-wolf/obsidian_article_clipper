@@ -44,12 +44,8 @@ gem install nokogiri
 
 ## 今後の実装予定
 
-- [ ] GUIでの動作の追加
-- [ ] Sinatraを使わない方法
-- [ ] mac、linux、win単体での機能
-- [ ] オプションでvault名とpathの変更方法
-- [ ] obsidianへの自動設定
-- [ ] obsidianかブラウザへのプラグイン化
+- [ ] mac、linux、win単体で機能
+- [x] オプションでvault名とpathの変更方法
 
 ## LICENCE
 
