@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative '../obsidian_clipper'
+require_relative '../bin/obsidian_clipper'
 
 class ObsidianClipperTest < Minitest::Test
   def setup
