@@ -1,4 +1,4 @@
-require_relative '/bin/obsidian_clipper'
+require_relative 'bin/obsidian_clipper'
 
 clipper = ObsidianClipper.new(vault: 'obsidian') # 'obsidian'は任意のvault名'
 
